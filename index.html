@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlateVision — ANPR Studio</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><div class="shell">
+<aside class="sidebar"><div class="brand"><div class="brand-icon">◉</div><div><b>PlateVision</b><small>ANPR STUDIO</small></div></div>
+<nav><a class="active" href="#scanner">▣ <span>Scanner</span></a><a href="#history">◷ <span>Detection history</span></a></nav>
+<div class="side-note"><span class="pulse"></span> LOCAL PROCESSING<br><small>Your images stay on this computer.</small></div>
+<div class="side-foot">AI VEHICLE INTELLIGENCE<br><small>Prototype · v1.0</small></div></aside>
+<main class="main"><header><div><p class="eyebrow">AUTOMATIC NUMBER PLATE RECOGNITION</p><h1>Vehicle intelligence, <em>simplified.</em></h1><p class="sub">Scan a vehicle, read its plate and keep a searchable record.</p></div><div class="status"><i></i> SYSTEM READY</div></header>
+<section class="workspace" id="scanner"><div class="panel scan-panel"><div class="panel-head"><div><h2>Live scanner</h2><p>Use your webcam or upload a vehicle photo.</p></div><span class="tag">AI SCAN</span></div>
+<div class="tabs"><button class="tab active" id="camTab">Live camera</button><button class="tab" id="uploadTab">Upload photo</button></div>
+<div id="cameraPane" class="media-box"><video id="video" autoplay playsinline muted></video><div id="cameraEmpty" class="empty"><div class="camera-icon">▣</div><b>Camera preview</b><span>Start your webcam to begin scanning</span></div><div class="media-overlay">LIVE FEED <span class="rec-dot"></span></div></div>
+<div id="uploadPane" class="upload-box hidden"><input type="file" id="fileInput" accept="image/*"><div class="upload-symbol">↑</div><b>Drop a vehicle photo here</b><span>or click to browse · JPG, PNG, WEBP</span><img id="preview" alt="Selected image preview"></div>
+<div class="actions"><button class="btn secondary" id="startCam">Start camera</button><button class="btn secondary hidden" id="stopCam">Stop camera</button><button class="btn primary" id="scanBtn">⌕ &nbsp; Scan vehicle</button></div>
+<p class="hint">Tip: Keep the number plate sharp, unobstructed and well-lit.</p></div>
+<div class="panel result-panel"><div class="panel-head"><div><h2>Recognition result</h2><p>Detected vehicle and plate details.</p></div><span class="tag muted">RESULT</span></div>
+<div id="resultEmpty" class="result-empty"><div class="target">⌖</div><b>Waiting for a scan</b><span>Your recognition result will appear here.</span></div>
+<div id="resultContent" class="hidden"><div class="plate-card"><span>NUMBER PLATE</span><strong id="plateText">—</strong><small id="confidence">—</small></div><div class="detail-row"><span>Vehicle type</span><b id="vehicleText">—</b></div><div class="detail-row"><span>Country / region</span><b id="countryText">Unknown</b></div><p class="notice" id="notice"></p></div>
+<div class="processing hidden" id="processing"><div class="spinner"></div>Analyzing image and reading plate…</div></div></section>
+<section class="panel history-panel" id="history"><div class="panel-head"><div><h2>Detection history</h2><p>Recent scans saved in your local database.</p></div><button class="btn small secondary" id="refreshBtn">↻ Refresh</button></div>
+<div class="table-wrap"><table><thead><tr><th>PLATE NUMBER</th><th>VEHICLE</th><th>CONFIDENCE</th><th>REGION</th><th>DATE & TIME</th><th></th></tr></thead><tbody id="historyBody"><tr><td colspan="6" class="empty-cell">No detections saved yet.</td></tr></tbody></table></div></section>
+<footer>PlateVision · Local-first vehicle recognition <span>Recognition can make mistakes — always verify the plate.</span></footer>
+</main></div><script src="/static/app.js"></script></body></html>
